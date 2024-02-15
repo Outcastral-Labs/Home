@@ -73,8 +73,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build with Next.js
+      - name: Run build
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
+      - name: Get directory
+        run: ls
       - name: List all directories excluding any node_modules
         run: find . -type d -not -path '*/node_modules/*' -print
       - name: List directories in ./next and ./out
