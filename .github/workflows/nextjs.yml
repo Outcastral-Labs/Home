@@ -75,10 +75,14 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
-      # - name: List output directory
-      #   run: ls -lR ./out
-      - name: List all directories
-        run: find . -type d -print
+      - name: List all directories excluding any node_modules
+        run: find . -type d -not -path '*/node_modules/*' -print
+      - name: List directories in ./next and ./out
+        run: |
+          echo "Directories in ./next:"
+          find ./next -type d -print
+          echo "Directories in ./out:"
+          find ./out -type d -print
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
