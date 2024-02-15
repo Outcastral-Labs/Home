@@ -73,23 +73,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Prepare directories
-        run: |
-          mkdir -p ./out
-          mkdir -p ./next
-          echo "Prepared ./out and ./next directories"
       - name: Run build
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
       - name: Get directory
-        run: ls
+        run: ls -a
       - name: List all directories excluding any node_modules
         run: find . -type d -not -path '*/node_modules/*' -print
-      - name: List directories in ./next and ./out
-        run: |
-          echo "Directories in ./next:"
-          find ./next -type d -print
-          echo "Directories in ./out:"
-          find ./out -type d -print
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
