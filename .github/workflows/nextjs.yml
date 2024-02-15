@@ -75,14 +75,12 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Run build
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
-      - name: Get directory
-        run: ls -a
       - name: List all directories excluding any node_modules
         run: find . -type d -not -path '*/node_modules/*' -print
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./export # trying export instead of out
 
   # Deployment job
   deploy:
