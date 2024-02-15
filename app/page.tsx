@@ -143,9 +143,13 @@ export default function Home() {
               <ul>
                 <li>- Evolved, deployable manufacturing cells and micro-factories</li>
                 <li>- Operating articulated objects in open-ended unstructured environments for field skilled tradework</li>
-                <li>- Vision language models for semantic navigation</li>
-                <li>- Combining foundation models for action generation</li>
-                <li>- Deploying computer vision models and alternative sensing modalities on embedded devices for edge inference</li>
+                <li>- Integrating heterogenous datasets (internet, physics simulation at high quantity, tele-op, real robot data) into a flywheel for robotics foundation models</li>
+                <li>- Vision language models and large language models for decision-making, planning, and control</li>
+                <li>- Foundation models for manipulation and action generation</li>
+                <li>- Deploying computer vision models and sensing modalities on embedded devices for edge inference</li>
+                <li>- Lidar SLAM for understanding progress of construction or repairs on large structures</li>
+                <li>- Interpretability and uncertainty quantification for AI deployments in physical or resource-constrained environments</li>
+                <li>- Sensor fusion and embedded systems and IoT development</li>
               </ul>
             </div>
           </div>
