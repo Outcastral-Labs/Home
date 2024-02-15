@@ -49,7 +49,7 @@ export default function Home() {
           <span className="text-xl font-black tracking-wide">OUTCASTRAL LABS</span>
         </div>
         <div className="flex items-center space-x-6">
-          <button className="bg-black-600 text-[#CCCFC9]">Menu</button>
+          <button className="text-[#CCCFC9]">Menu</button>
         </div>
       </nav>
       <nav className="relative z-10 hidden lg:flex container mx-auto px-4 py-6 justify-between items-center">
@@ -102,7 +102,7 @@ export default function Home() {
           <div className="flex flex-col col-span-3 row-start-3 z-2 h-full">
             <div className="flex justify-center my-2">
               <div className="w-[800px] lg:w-[800px] md:w-[600px] sm:w-[600]">
-                <h1 className="text-left xl:text-2xl lg:text-2xl md:text-1xl sm:text-lg font-black mb-2 tracking-wide font-mono">
+                <h1 className="bg-[#090B0C] text-left xl:text-2xl lg:text-2xl md:text-1xl sm:text-lg font-black mb-2 tracking-wide font-mono">
                   <span>Agency is&nbsp;</span>
                   <span ref={typedElement}></span>
                 </h1>
@@ -144,9 +144,9 @@ export default function Home() {
                 <li>- Evolved, deployable manufacturing cells and micro-factories</li>
                 <li>- Operating articulated objects in open-ended unstructured environments for field skilled tradework</li>
                 <li>- Integrating heterogenous datasets (internet, physics simulation at high quantity, tele-op, real robot data) into a flywheel for robotics foundation models</li>
-                <li>- Vision language models and large language models for decision-making, planning, and control</li>
+                <li>- VLMs and LLMs for decision-making, planning, and control</li>
                 <li>- Foundation models for manipulation and action generation</li>
-                <li>- Deploying computer vision models and sensing modalities on embedded devices for edge inference</li>
+                <li>- Deploying computer vision models and other sensing modalities for edge inference</li>
                 <li>- Lidar SLAM for understanding progress of construction or repairs on large structures</li>
                 <li>- Interpretability and uncertainty quantification for AI deployments in physical or resource-constrained environments</li>
                 <li>- Sensor fusion and embedded systems and IoT development</li>
