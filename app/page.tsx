@@ -1,113 +1,159 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import Image from "next/image";
+import Typed from 'typed.js';
+import isometricWorkshop from "../public/images/isometricWorkshop.webp";
+import hoodLogo from "../public/images/hoodLogo.png";
+import ScrollSvgIcon from "../public/icons/scroll";
+import RobotSvgIcon from "../public/icons/robot";
+import AstronautSvgIcon from "../public/icons/astronaut";
 
 export default function Home() {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const typedElement = useRef(null);
+
+  const handleAboutClick = () => {
+    event?.preventDefault();
+    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  useEffect(() => {
+    const typed = new Typed(typedElement.current, {
+      strings: ['the capacity to act', 'realizing you can just go and do things', 'finding things others aren&apos;t willing to do', 'a learnable skill'],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1400,
+      startDelay: 1400,
+      fadeOut: true,
+      loop: true,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+    <div className="bg-[#111517] text-[#CCCFC9] font-work-sans h-full overflow-auto">
+      <nav className="relative z-10 container mx-auto px-4 py-6 flex justify-between items-center lg:hidden">
+        <div className="flex items-center space-x-4">
+          <Image
+            alt="Outcastral Labs logo"
+            className="h-10 w-10"
+            height={60}
+            src={hoodLogo}
+            width={60}
+            objectFit="cover"
+          />
+          <span className="text-xl font-black tracking-wide">OUTCASTRAL LABS</span>
+        </div>
+        <div className="flex items-center space-x-6">
+          <button className="bg-black-600 text-[#CCCFC9]">Menu</button>
+        </div>
+      </nav>
+      <nav className="relative z-10 hidden lg:flex container mx-auto px-4 py-6 justify-between items-center">
+        <div className="flex items-center space-x-4">
+        <Image
+            alt="Outcastral Labs logo"
+            className="h-15 w-15"
+            height={60}
+            src={hoodLogo}
+            loading="eager"
+            placeholder="blur"
+            width={60}
+            objectFit="cover"
+          />
+          <span className="text-xl font-black tracking-wide">OUTCASTRAL LABS</span>
+        </div>
+        <div className="flex items-center space-x-6 text-[#CCCFC9]">
+          <button className="hover:bg-[#445359] border-2 border-transparent hover:border hover:border-[#6A818A] font-medium py-2 px-2 rounded inline-flex items-center">
+            <RobotSvgIcon />
+            <span className="ml-1">Projects</span>
+          </button>
+          <button className="hover:bg-[#445359] border-2 border-transparent hover:border hover:border-[#6A818A] font-medium py-2 px-2 rounded inline-flex items-center" onClick={handleAboutClick}>
+            <ScrollSvgIcon />
+            <span className="ml-1">About</span>
+          </button>
+          <a href="mailto:stephen@outcastral.com?subject=Reaching out&body=Hi Stephen," className="hover:bg-[#445359] border-2 border-transparent hover:border hover:border-[#6A818A] font-medium py-2 px-2 rounded inline-flex items-center">
+            <AstronautSvgIcon />
+            <span className="ml-1">Contact</span>
           </a>
         </div>
+      </nav>
+      <header className="relative bg-cover bg-center min-h-[calc(100vh-100px)] container mx-auto h-[calc(100vh-100px)] h-screen mb-8">
+        <div className="grid grid-cols-3 grid-rows-3 gap-2 h-[calc(100vh-100px)]">
+          <div className="col-span-3 row-span-2 row-start-1 row-end-3 relative">
+            <Image
+              alt="Workshop"
+              src={isometricWorkshop}
+              placeholder="blur"
+              loading="eager"
+              quality={70}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{
+                objectFit: "contain",
+                pointerEvents: "none",
+                zIndex: 1, 
+              }}
+            />
+          </div>
+          <div className="flex flex-col col-span-3 row-start-3 z-2 h-full">
+            <div className="flex justify-center my-2">
+              <div className="w-[800px] lg:w-[800px] md:w-[600px] sm:w-[600]">
+                <h1 className="text-left xl:text-2xl lg:text-2xl md:text-1xl sm:text-lg font-black mb-2 tracking-wide font-mono">
+                  <span>Agency is&nbsp;</span>
+                  <span ref={typedElement}></span>
+                </h1>
+              </div>
+            </div>
+            <div className="flex flex-1 flex-col items-center justify-evenly max-w-[768px] mx-auto h-full">
+              <div className="text-lg text-center">
+                Outcastral is a maker and capabilities shop formed around the notion of going out and doing. We apply research at the intersection of AI and robotics to the industrial base.
+              </div>
+              <a href="mailto:stephen@outcastral.com?subject=Reaching out&body=Hi Stephen," className="hover:bg-[#445359] border border-[#6A818A] hover:border hover:border-[#6A818A] font-medium p-3 rounded inline-flex items-center text-lg">
+                <AstronautSvgIcon />
+                <span className="ml-1">Contact</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div ref={aboutRef} id="about" className="relative bg-cover bg-center min-h-[calc(100vh-100px)] container mx-auto h-[calc(100vh-100px)] bg-[#111517] transition-opacity duration-500 ease-in-out opacity-100">
+        <main className="flex flex-col h-[calc(100vh-100px)] justify-normal gap-2 max-w-[768px] mx-auto h-full">
+          <div className="relative inline-flex items-center justify-around w-full">
+            <hr className="w-full h-0.5 bg-[#6D7F87] border-0 dark:bg-[#6D7F87]"></hr>
+            <div className="absolute px-4 -translate-x-1/2 left-1/2" style={{backgroundColor: "#111517"}}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" aria-hidden="true" className="bi bi-engine w-8 h-8 text-gray-700 dark:text-gray-300" viewBox="0 0 16 16" style={{ backgroundColor: "#111517" }}>
+                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v2A1.5 1.5 0 0 1 12.5 7h-9A1.5 1.5 0 0 1 2 5.5v-2zM3.5 3a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-9zM6 8a2 2 0 1 0 0 4h4a2 2 0 1 0 0-4H6zm-1 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm5 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
+                <path d="M9 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-4 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-around w-full my-6">
+            <h1 className="text-4xl font-black mb-4 tracking-wide">About</h1>
+            <div className="text-center mb-6">
+              Two once-in-a-lifetime opportunities are reshaping the world: the reshoring of industrial manufacturing, and the convergence of AI, robotics, and edge devices. Our mission is to take hold of these forces and apply emergent technical capabilities to evolve industrial manufacturing.
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-around w-full">
+            <h2 className="text-2xl font-black mb-4 tracking-wide">Areas of research, expertise, and collaboration:</h2>
+            <div className="text-center mb-6">
+              <ul>
+                <li>- Evolved, deployable manufacturing cells and micro-factories</li>
+                <li>- Operating articulated objects in open-ended unstructured environments for field skilled tradework</li>
+                <li>- Vision language models for semantic navigation</li>
+                <li>- Combining foundation models for action generation</li>
+                <li>- Deploying computer vision models and alternative sensing modalities on embedded devices for edge inference</li>
+              </ul>
+            </div>
+          </div>
+        </main>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="mt-auto py-4 text-center bg-[#111517] text-[#CCCFC9]">
+        © 2024 Outcastral Labs · All rights reserved
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
