@@ -87,7 +87,7 @@ export default function Home() {
             <Image
               alt="Workshop"
               src={isometricWorkshop}
-              placeholder="blur"
+              placeholder="empty"
               loading="eager"
               priority={true}
               quality={50}
