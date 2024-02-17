@@ -89,7 +89,8 @@ export default function Home() {
               src={isometricWorkshop}
               placeholder="blur"
               loading="eager"
-              quality={70}
+              priority={true}
+              quality={50}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
