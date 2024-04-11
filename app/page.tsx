@@ -15,18 +15,19 @@ export default function Home() {
 
   const handleAboutClick = () => {
     event?.preventDefault();
-    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+    aboutRef.current?.scrollIntoView({ behavior: 'instant' });
   }
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
-      strings: ['the capacity to act', 'realizing you can just go and do things', 'finding things others aren&apos;t willing to do', 'a learnable skill'],
+      strings: ['Revitalizing skilled trades for heavy industry'],
       typeSpeed: 60,
-      backSpeed: 40,
+      backSpeed: 0,
       backDelay: 1400,
-      startDelay: 1400,
+      startDelay: 1000,
       fadeOut: true,
       loop: true,
+      cursorChar: '█',
     });
 
     return () => {
@@ -92,7 +93,7 @@ export default function Home() {
               priority={true}
               quality={50}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 33vw"
               style={{
                 objectFit: "contain",
                 pointerEvents: "none",
@@ -103,17 +104,19 @@ export default function Home() {
           <div className="flex flex-col col-span-3 row-start-3 z-2 h-full">
             <div className="flex justify-center my-2">
               <div className="w-[800px] lg:w-[800px] md:w-[600px] sm:w-[600]">
-                <h1 className="bg-[#090B0C] text-left xl:text-2xl lg:text-2xl md:text-1xl sm:text-lg font-black mb-2 tracking-wide font-mono">
-                  <span>Agency is&nbsp;</span>
+                <h1 className="typed bg-[#090B0C] text-left xl:text-1xl lg:text-1xl md:text-1xl sm:text-lg font-black mb-2 tracking-wide font-mono">
+                  <span className="text-[#9CABAF]">user@outcastral:~$&nbsp;</span>
                   <span ref={typedElement}></span>
                 </h1>
               </div>
             </div>
             <div className="flex flex-1 flex-col items-center justify-evenly max-w-[768px] mx-auto h-full">
               <div className="text-lg text-center">
-                Outcastral is a maker and capabilities shop formed around the notion of going out and doing. We apply research at the intersection of AI and robotics to the industrial base.
+              U.S. shipyards and heavy industry face acute shortages in the skilled trade workforce.  
+              <br></br>
+              We are building mobile welding cobots for open-ended environments and shaping vulnerabilities in the industrial base into deterrents.  
               </div>
-              <a href="mailto:stephen@outcastral.com?subject=Reaching out&body=Hi Stephen," className="hover:bg-[#445359] border border-[#6A818A] hover:border hover:border-[#6A818A] font-medium p-3 rounded inline-flex items-center text-lg">
+              <a href="mailto:stephen@outcastral.com" className="hover:bg-[#445359] border border-[#6A818A] hover:border hover:border-[#6A818A] font-medium p-3 rounded inline-flex items-center text-lg">
                 <AstronautSvgIcon />
                 <span className="ml-1">Contact</span>
               </a>
@@ -121,41 +124,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <div ref={aboutRef} id="about" className="relative bg-cover bg-center min-h-[calc(100vh-100px)] container mx-auto h-[calc(100vh-100px)] bg-[#111517] transition-opacity duration-500 ease-in-out opacity-100">
-        <main className="flex flex-col h-[calc(100vh-100px)] justify-normal gap-2 max-w-[768px] mx-auto h-full">
-          <div className="relative inline-flex items-center justify-around w-full">
-            <hr className="w-full h-0.5 bg-[#6D7F87] border-0 dark:bg-[#6D7F87]"></hr>
-            <div className="absolute px-4 -translate-x-1/2 left-1/2" style={{backgroundColor: "#111517"}}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" aria-hidden="true" className="bi bi-engine w-8 h-8 text-gray-700 dark:text-gray-300" viewBox="0 0 16 16" style={{ backgroundColor: "#111517" }}>
-                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v2A1.5 1.5 0 0 1 12.5 7h-9A1.5 1.5 0 0 1 2 5.5v-2zM3.5 3a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-9zM6 8a2 2 0 1 0 0 4h4a2 2 0 1 0 0-4H6zm-1 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm5 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
-                <path d="M9 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-4 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-around w-full my-6">
-            <h1 className="text-4xl font-black mb-4 tracking-wide">About</h1>
-            <div className="text-center mb-6">
-              Two once-in-a-lifetime opportunities are reshaping the world: the reshoring of industrial manufacturing, and the convergence of AI, robotics, and edge devices. Our mission is to take hold of these forces and apply emergent technical capabilities to evolve industrial manufacturing.
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-around w-full">
-            <h2 className="text-2xl font-black mb-4 tracking-wide">Areas of research, expertise, and collaboration:</h2>
-            <div className="text-center mb-6">
-              <ul>
-                <li>- Evolved, deployable manufacturing cells and micro-factories</li>
-                <li>- Operating articulated objects in open-ended unstructured environments for field skilled tradework</li>
-                <li>- Integrating heterogenous datasets (internet, physics simulation at high quantity, tele-op, real robot data) into a flywheel for robotics foundation models</li>
-                <li>- VLMs and LLMs for decision-making, planning, and control</li>
-                <li>- Foundation models for manipulation and action generation</li>
-                <li>- Deploying computer vision models and other sensing modalities for edge inference</li>
-                <li>- Lidar SLAM for understanding progress of construction or repairs on large structures</li>
-                <li>- Interpretability and uncertainty quantification for AI deployments in physical or resource-constrained environments</li>
-                <li>- Sensor fusion and embedded systems and IoT development</li>
-              </ul>
-            </div>
-          </div>
-        </main>
-      </div>
       <div className="mt-auto py-4 text-center bg-[#111517] text-[#CCCFC9]">
         © 2024 Outcastral Labs · All rights reserved
       </div>
