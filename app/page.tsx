@@ -94,7 +94,7 @@ export default function Home() {
               priority={true}
               quality={10}
               fill
-              sizes="(max-width: 768px) 35vw, (max-width: 1200px) 45vw, 25vw"
+              sizes="(max-width: 768px) 25vw, (max-width: 1200px) 35vw, 25vw"
               style={{
                 objectFit: "contain",
                 pointerEvents: "none",
