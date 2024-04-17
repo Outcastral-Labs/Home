@@ -112,14 +112,14 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-1 flex-col items-center justify-evenly max-w-[768px] mx-auto h-full">
-              <div className="text-lg text-center">
+              <div className="text-med text-center">
               U.S. shipyards and heavy industry face acute shortages in the skilled trade workforce.
               <br></br>
-              They&apos;re full of open-ended environments that are difficult to automate.
+              They&apos;re full of open-ended scenarios that are difficult to automate.
               <br></br>
-              We&apos;re building mobile welding robots for these environments
+              We&apos;re building mobile welding robots for these situations
               <br></br>
-              to scale the workforce and strengthen the industrial base.
+              to scale our workforce and strengthen our industrial base.
               </div>
               <a href="mailto:stephen@outcastral.com" className="hover:bg-[#445359] border border-[#6A818A] hover:border hover:border-[#6A818A] font-medium p-3 rounded inline-flex items-center text-med">
                 <AstronautSvgIcon />
